@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Uma homenagem à mãe que a vida escolheu — presente digital para o Dia das Mães.">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="color-scheme" content="dark light">
+    <title>Para Você — Minha Mãe de Guarda ❤️</title>
+
+    <!-- Google Fonts: tipografia elegante e cinematográfica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+    <!-- Supabase SDK (carregado via CDN, lógica isolada em main.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+
+    <!-- Estilos externos (CSS puro, sem inline) -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Scripts externos (JavaScript puro, sem inline) -->
+    <script src="js/animations.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- CANVAS DE PARTÍCULAS (fundo animado com brilhos dourados)     -->
+    <!-- ============================================================ -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- ============================================================ -->
+    // INDICADOR DE CARREGAMENTO (loading screen cinematográfica)
+    <!-- ============================================================ -->
+    <div id="loading-screen" class="loading-screen" role="status" aria-label="Carregando">
+        <div class="loading-spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring spinner-ring--inner"></div>
+        </div>
+        <p class="loading-text">Preparando suas lembranças...</p>
+    </div>
+
+    <!-- ============================================================ -->
+    // BOTÃO DE MÚSICA AMBIENTE (canto inferior direito)
+    <!-- ============================================================ -->
+    <button id="music-toggle" class="music-toggle" aria-label="Ativar música ambiente" title="Música ambiente">
+        <svg class="music-icon music-icon--off" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+            <line x1="23" y1="3" x2="23" y2="16" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="music-icon music-icon--on" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none;">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+        </svg>
+    </button>
+    <audio id="bg-music" loop preload="none" src="assets/audio/music.mp3"></audio>
+
+    <!-- ============================================================ -->
+    // HEADER SUTIL (navegação minimalista)
+    <!-- ============================================================ -->
+    <header id="site-header" class="site-header">
+        <nav class="header-nav" aria-label="Navegação principal">
+            <a href="#hero" class="nav-logo">🌸</a>
+            <ul class="nav-list">
+                <li><a href="#carta" class="nav-link">Carta</a></li>
+                <li><a href="#galeria" class="nav-link">Memórias</a></li>
+                <li><a href="#videos" class="nav-link">Vídeos</a></li>
+                <li><a href="#timeline" class="nav-link">Jornada</a></li>
+                <li><a href="#significados" class="nav-link">Significados</a></li>
+                <li><a href="#encerramento" class="nav-link">Final</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================================ -->
+    // SEÇÃO 1: HERO — Tela inicial impactante
+    <!-- ============================================================ -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-animate="fade-up">
+                <span class="hero-title-line">Nem sempre mãe</span>
+                <span class="hero-title-line hero-title-line--highlight">é quem gera…</span>
+                <span class="hero-title-line hero-title-line--gold">às vezes é quem acolhe.</span>
+            </h1>
+            <p class="hero-subtitle" data-animate="fade-up" data-delay="800">
+                Para aquela que se tornou abrigo,<br>mesmo sem precisar.
+            </p>
+            <button id="hero-cta" class="btn-cta" data-animate="fade-up" data-delay="1500" aria-label="Entrar nessa lembrança">
+                <span class="btn-cta-text">Entrar nessa lembrança</span>
+                <span class="btn-cta-icon">↓</span>
+            </button>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true">
+            <span class="scroll-line"></span>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    // SEÇÃO 2: CARTA PRINCIPAL — O coração do site
+    <!-- ============================================================ -->
+    <section id="carta" class="letter-section">
+        <div class="section-inner">
+            <h2 class="section-title section-title--script" data-animate="fade-up">Uma carta para você</h2>
+            <div class="letter-container" data-animate="fade-up" data-delay="300">
+                <div class="letter-paper" id="letter-paper">
+                    <div class="letter-paper-texture"></div>
+                    <div class="letter-content" id="letter-content">
+                        <!-- A carta será preenchida dinamicamente pelo JavaScript
+                             com efeito de máquina de escrever -->
+                    </div>
+                    <div class="letter-signature" id="letter-signature">
+                        <span class="signature-line"></span>
+                        <span class="signature-text">Com todo meu carinho e gratidão eterna</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    // SEÇÃO 3: GALERIA DE FOTOS — Mosaico de memórias
+    <!-- ============================================================ -->
+    <section id="galeria" class="gallery-section">
+        <div class="section-inner">
+            <h2 class="section-title" data-animate="fade-up">Momentos que ficaram</h2>
+            <p class="section-subtitle" data-animate="fade-up" data-delay="200">
+                Algumas lembranças não precisam de legenda para emocionar.
+            </p>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Preenchido dinamicamente via JavaScript a partir do JSON -->
+            </div>
+            <p class="gallery-caption" data-animate="fade-up">
+                <em id="gallery-random-caption">"Momentos simples que ficaram eternos."</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    // SEÇÃO 4: VÍDEOS — Memórias em movimento
+    <!-- ============================================================ -->
+    <section id="videos" class="videos-section">
+        <div class="section-inner">
+            <h2 class="section-title" data-animate="fade-up">Memórias em movimento</h2>
+            <p class="section-subtitle" data-animate="fade-up" data-delay="200">
+                Pequenos instantes que carregam um universo de sentimento.
+            </p>
+            <div class="videos-grid" id="videos-grid">
+                <!-- Preenchido dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    // SEÇÃO 5: LINHA DO TEMPO EMOCIONAL
+    <!-- ============================================================ -->
+    <section id="timeline" class="timeline-section">
+        <div class="section-inner">
+            <h2 class="section-title" data-animate="fade-up">Nossa jornada</h2>
+            <p class="section-subtitle" data-animate="fade-up" data-delay="200">
+                Pequenos grandes momentos que construíram quem somos.
+            </p>
+            <div class="timeline" id="timeline-container">
+                <!-- Preenchido dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    // SEÇÃO 6: O QUE VOCÊ SIGNIFICA PRA MIM — Cards emocionais
+    <!-- ============================================================ -->
+    <section id="significados" class="cards-section">
+        <div class="section-inner">
+            <h2 class="section-title" data-animate="fade-up">O que você significa pra mim</h2>
+            <div class="cards-grid" id="cards-grid">
+                <!-- Preenchido dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    // SEÇÃO 7: ENCERRAMENTO — Final cinematográfico
+    <!-- ============================================================ -->
+    <section id="encerramento" class="closing-section">
+        <div class="closing-overlay"></div>
+        <div class="closing-content">
+            <blockquote class="closing-quote" data-animate="fade-up">
+                <p>Talvez o sangue aproxime pessoas…</p>
+                <p class="closing-quote--highlight">mas o amor, o cuidado e o carinho<br>são o que realmente criam uma família.</p>
+            </blockquote>
+            <div class="closing-divider" data-animate="fade-up" data-delay="600">
+                <span class="divider-line"></span>
+                <span class="divider-icon">❤️</span>
+                <span class="divider-line"></span>
+            </div>
+            <h2 class="closing-title" data-animate="fade-up" data-delay="900">
+                Feliz Dia das Mães
+            </h2>
+            <p class="closing-subtitle" data-animate="fade-up" data-delay="1200">
+                Com todo amor do mundo,<br>para a mãe que a vida me deu de presente.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    // FOOTER
+    <!-- ============================================================ -->
+    <footer class="site-footer">
+        <p>Feito com amor. Para sempre. 🌷</p>
+    </footer>
+
+    <!-- ============================================================ -->
+    // MODAL PARA VISUALIZAÇÃO DE FOTOS (lightbox)
+    <!-- ============================================================ -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Visualização de foto">
+        <button class="lightbox-close" aria-label="Fechar">✕</button>
+        <img id="lightbox-img" src="" alt="">
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+
+    <!-- ============================================================ -->
+    // MODAL PARA VISUALIZAÇÃO DE VÍDEOS
+    <!-- ============================================================ -->
+    <div id="video-modal" class="lightbox" aria-hidden="true" role="dialog" aria-label="Reprodução de vídeo">
+        <button class="lightbox-close" aria-label="Fechar">✕</button>
+        <div class="video-modal-container">
+            <video id="video-modal-player" controls playsinline></video>
+            <p id="video-modal-title" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+</body>
+</html>
