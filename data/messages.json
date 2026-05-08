@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "title": "Nem sempre mãe é quem gera… às vezes é quem acolhe.",
+    "subtitle": "Para aquela que se tornou abrigo, mesmo sem precisar."
+  },
+  "letter": {
+    "paragraphs": [
+      "Por mais que o sangue não nos una em nome, existe algo mais forte que nos conecta — e isso ninguém pode apagar.",
+
+      "Você foi refúgio quando eu não sabia para onde ir. Foi ponto de paz na correria dos dias, foi esperança nas horas incertas, foi socorro nos momentos em que o chão parecia ceder sob os meus pés. Se a vida me pediu uma mãe emprestada por alguns meses, você atendeu ao chamado sem hesitar.",
+
+      "Eu me lembro das pequenas coisas. De gestos que talvez você nem imagine que eu guardei. Do café quente nas manhãs frias. Do silêncio que acolhia mais do que qualquer palavra. Das broncas que, no fundo, carregavam um cuidado que eu só entendi depois. Do olhar atento que via além do que eu mostrava.",
+
+      "Sei que nem sempre fui fácil. Sei que houve desencontros, palavras atravessadas, mal-entendidos que machucaram. Me desculpe por cada momento em que minha imperfeição tocou você de forma errada. Nunca, em nenhum instante, foi por mal. Foi só o jeito torto de quem ainda estava aprendendo a lidar com o próprio mundo.",
+
+      "Mas, apesar de tudo — ou talvez por causa de tudo — você permaneceu. E permanecer é a forma mais bonita de amar. Você ficou quando poderia ter ido embora. Você cuidou quando ninguém mais olhou. Você abraçou quando o resto do mundo deu as costas.",
+
+      "Família não se define por certidão, nem por genética, nem por obrigação. Família se revela nas atitudes, no colo oferecido, na presença constante, no amor que não cobra nada em troca. E você foi tudo isso. Foi família da mais verdadeira que existe.",
+
+      "Hoje, olhando para trás, vejo com clareza: você foi uma das respostas mais bonitas que a vida me deu. Um presente inesperado. Uma prova viva de que o cuidado transforma, de que o acolhimento cura, de que a bondade constrói pontes que nenhum tempo destrói.",
+
+      "Sou grato. Profundamente grato. Por cada dia, cada gesto, cada palavra, cada silêncio. Por ter me mostrado que mãe é quem decide ser — e você decidiu.",
+
+      "Obrigado por ter sido abrigo. Obrigado por ter sido presença. Obrigado por ter sido você.",
+
+      "Levo comigo, para sempre, a certeza de que fui abençoado por encontrar no meu caminho alguém tão especial. Alguém que o universo colocou de propósito, na hora certa, do jeito certo."
+    ],
+    "signature": "Com todo meu carinho e gratidão eterna"
+  },
+  "gallery": {
+    "images": [
+      {
+        "src": "assets/images/photo1.jpg",
+        "alt": "Um momento especial juntos",
+        "caption": "Dias que o coração guardou."
+      },
+      {
+        "src": "assets/images/photo2.jpg",
+        "alt": "Sorrindo juntos",
+        "caption": "Alegria que nasce do afeto."
+      },
+      {
+        "src": "assets/images/photo3.jpg",
+        "alt": "Abraço apertado",
+        "caption": "Abrigo em forma de gente."
+      },
+      {
+        "src": "assets/images/photo4.jpg",
+        "alt": "Mesa posta, conversa boa",
+        "caption": "Simplicidade que vira eternidade."
+      },
+      {
+        "src": "assets/images/photo5.jpg",
+        "alt": "Olhar de cuidado",
+        "caption": "Você sempre soube olhar além."
+      },
+      {
+        "src": "assets/images/photo6.jpg",
+        "alt": "Rindo de algo bobo",
+        "caption": "As melhores memórias são assim."
+      }
+    ],
+    "captions": [
+      "Momentos simples que ficaram eternos.",
+      "Família também nasce do cuidado.",
+      "Algumas pessoas entram na vida da gente como resposta.",
+      "O amor transforma presença em abrigo.",
+      "Certas lembranças aquecem a alma."
+    ]
+  },
+  "videos": [
+    {
+      "src": "assets/videos/memory1.mp4",
+      "title": "Um instante que diz tudo",
+      "thumbnail": "assets/images/video-thumb1.jpg"
+    },
+    {
+      "src": "assets/videos/memory2.mp4",
+      "title": "Risadas que ecoam no coração",
+      "thumbnail": "assets/images/video-thumb2.jpg"
+    }
+  ],
+  "timeline": [
+    "No primeiro dia, você me recebeu com um sorriso que desarmou todas as minhas defesas.",
+    "Nos dias difíceis, você estava lá — sem precisar dizer nada, sua presença já bastava.",
+    "Nas conversas simples da cozinha, eu encontrava paz e um senso de pertencimento.",
+    "Mesmo nas broncas, existia cuidado disfarçado de preocupação.",
+    "Você virou abrigo sem perceber — e eu encontrei um lar.",
+    "Aprendi com você que generosidade é um ato silencioso e poderoso.",
+    "Hoje, olho para trás e vejo: cada momento foi um tijolo na construção desse amor."
+  ],
+  "cards": [
+    {
+      "icon": "🏠",
+      "text": "Você foi refúgio."
+    },
+    {
+      "icon": "🤲",
+      "text": "Você foi cuidado."
+    },
+    {
+      "icon": "💪",
+      "text": "Você foi apoio."
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "text": "Você foi família."
+    },
+    {
+      "icon": "✨",
+      "text": "Você foi resposta."
+    },
+    {
+      "icon": "💛",
+      "text": "Você foi amor."
+    }
+  ],
+  "closing": {
+    "quote": "Talvez o sangue aproxime pessoas…",
+    "quoteHighlight": "mas o amor, o cuidado e o carinho são o que realmente criam uma família.",
+    "title": "Feliz Dia das Mães ❤️",
+    "subtitle": "Com todo amor do mundo, para a mãe que a vida me deu de presente."
+  }
+}
