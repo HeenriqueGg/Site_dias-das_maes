@@ -30,32 +30,32 @@
   "gallery": {
     "images": [
       {
-        "src": "assets/images/photo1.jpg",
+        "src": "img/photo1.jpg",
         "alt": "Um momento especial juntos",
         "caption": "Dias que o coração guardou."
       },
       {
-        "src": "assets/images/photo2.jpg",
+        "src": "img/photo2.jpg",
         "alt": "Sorrindo juntos",
         "caption": "Alegria que nasce do afeto."
       },
       {
-        "src": "assets/images/photo3.jpg",
+        "src": "img/photo3.jpg",
         "alt": "Abraço apertado",
         "caption": "Abrigo em forma de gente."
       },
       {
-        "src": "assets/images/photo4.jpg",
+        "src": "img/photo4.jpg",
         "alt": "Mesa posta, conversa boa",
         "caption": "Simplicidade que vira eternidade."
       },
       {
-        "src": "assets/images/photo5.jpg",
+        "src": "img/photo5.jpg",
         "alt": "Olhar de cuidado",
         "caption": "Você sempre soube olhar além."
       },
       {
-        "src": "assets/images/photo6.jpg",
+        "src": "img/photo6.jpg",
         "alt": "Rindo de algo bobo",
         "caption": "As melhores memórias são assim."
       }
@@ -70,12 +70,12 @@
   },
   "videos": [
     {
-      "src": "assets/videos/memory1.mp4",
+      "src": "vid/memory1.mp4",
       "title": "Um instante que diz tudo",
       "thumbnail": "assets/images/video-thumb1.jpg"
     },
     {
-      "src": "assets/videos/memory2.mp4",
+      "src": "vid/memory2.mp4",
       "title": "Risadas que ecoam no coração",
       "thumbnail": "assets/images/video-thumb2.jpg"
     }
