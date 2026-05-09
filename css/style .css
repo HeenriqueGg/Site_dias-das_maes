@@ -2,11 +2,11 @@
    style.css — Design cinematográfico, elegante e emocional
    Tema: Mãe de Guarda — Dia das Mães
    Paleta: dourado suave, branco, bege, preto suave, tons quentes
+   FULL RESPONSIVO (mobile-first aprimorado)
    ============================================================ */
 
 /* ========== CSS CUSTOM PROPERTIES ========== */
 :root {
-    /* Cores principais */
     --color-gold: #c9a96e;
     --color-gold-light: #d4b87a;
     --color-gold-dark: #a6844a;
@@ -21,25 +21,21 @@
     --color-gray-warm: #5c5650;
     --color-gray-light: #b8b0a8;
 
-    /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.04);
     --glass-border: rgba(255, 255, 255, 0.12);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
     --glass-blur: blur(20px);
 
-    /* Sombras */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
     --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
     --shadow-gold: 0 4px 24px rgba(201, 169, 110, 0.25);
     --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 6px 20px rgba(0, 0, 0, 0.08);
 
-    /* Tipografia */
     --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
     --font-body: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     --font-ui: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     --font-script: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
 
-    /* Tamanhos */
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1.05rem;
@@ -50,7 +46,6 @@
     --text-4xl: 4rem;
     --text-5xl: 5.5rem;
 
-    /* Espaçamento */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
@@ -59,20 +54,17 @@
     --space-2xl: 6rem;
     --space-3xl: 10rem;
 
-    /* Bordas */
     --radius-sm: 6px;
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
     --radius-full: 50%;
 
-    /* Transições */
     --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     --transition-slow: 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-cinematic: 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 
-    /* Z-index layers */
     --z-canvas: 0;
     --z-content: 10;
     --z-header: 100;
@@ -243,6 +235,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
 }
 .nav-logo {
     font-size: 1.6rem;
@@ -313,6 +307,7 @@ body {
     z-index: 2;
     padding: var(--space-lg);
     max-width: 800px;
+    width: 90%;
 }
 .hero-title {
     font-family: var(--font-display);
@@ -422,7 +417,7 @@ body {
     50% { opacity: 1; height: 60px; }
 }
 
-/* ========== SECTION INNER (wrapper padrão) ========== */
+/* ========== SECTION INNER ========== */
 .section-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -457,7 +452,7 @@ body {
     margin-bottom: var(--space-xl);
 }
 
-/* ========== LETTER SECTION (Carta) ========== */
+/* ========== LETTER SECTION ========== */
 .letter-section {
     position: relative;
     z-index: var(--z-content);
@@ -730,7 +725,7 @@ body {
     line-height: 1.6;
 }
 
-/* ========== CARDS SECTION (Significados) ========== */
+/* ========== CARDS SECTION ========== */
 .cards-section {
     position: relative;
     z-index: var(--z-content);
@@ -772,7 +767,7 @@ body {
     font-style: italic;
 }
 
-/* ========== CLOSING SECTION (Encerramento) ========== */
+/* ========== CLOSING SECTION ========== */
 .closing-section {
     position: relative;
     width: 100%;
@@ -795,6 +790,7 @@ body {
     z-index: 2;
     padding: var(--space-lg);
     max-width: 700px;
+    width: 90%;
 }
 .closing-quote {
     font-family: var(--font-display);
@@ -861,7 +857,7 @@ body {
     z-index: var(--z-content);
 }
 
-/* ========== LIGHTBOX (fotos e vídeos) ========== */
+/* ========== LIGHTBOX ========== */
 .lightbox {
     position: fixed;
     inset: 0;
@@ -942,86 +938,183 @@ body {
     transform: translateY(0);
 }
 
-/* ========== RESPONSIVIDADE ========== */
-@media (max-width: 768px) {
+/* ============================================================
+   ============ RESPONSIVIDADE COMPLETA (MOBILE FIRST) ==========
+   ============================================================ */
+
+/* Dispositivos muito pequenos (ex: iPhone SE, 320px) */
+@media (max-width: 400px) {
     :root {
-        --text-5xl: 2.8rem;
-        --text-4xl: 2.2rem;
-        --text-3xl: 1.8rem;
+        --text-5xl: 2.2rem;
+        --text-4xl: 1.8rem;
+        --text-3xl: 1.5rem;
+        --text-2xl: 1.3rem;
+        --text-xl: 1.1rem;
+        --text-lg: 1rem;
     }
-    .section-inner {
-        padding: var(--space-xl) var(--space-md);
+
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
     }
-    .header-nav {
-        flex-wrap: wrap;
-        gap: var(--space-xs);
-        justify-content: center;
+
+    .hero-subtitle {
+        font-size: 0.95rem;
     }
-    .nav-list {
-        gap: var(--space-xs);
-        justify-content: center;
+
+    .btn-cta {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.75rem;
     }
-    .nav-link {
-        font-size: 0.7rem;
-        letter-spacing: 0.04em;
-    }
+
     .letter-paper {
-        padding: var(--space-lg) var(--space-md);
-        border-radius: var(--radius-md);
+        padding: var(--space-md) var(--space-sm);
     }
+
     .letter-content {
-        font-size: var(--text-base);
-        line-height: 1.8;
+        font-size: 0.9rem;
+        line-height: 1.7;
     }
+
+    .signature-text {
+        font-size: 0.9rem;
+    }
+
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: var(--space-sm);
     }
+
+    .gallery-item {
+        aspect-ratio: 4 / 3;
+    }
+
     .videos-grid {
         grid-template-columns: 1fr;
-    }
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
     }
-    .timeline {
-        padding-left: var(--space-lg);
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
+
+    .timeline {
+        padding-left: var(--space-md);
+    }
+
     .timeline-item-dot {
-        left: calc(-1 * var(--space-lg) + 10px);
+        left: calc(-1 * var(--space-md) + 10px);
         width: 10px;
         height: 10px;
     }
+
+    .timeline-item-content {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .timeline-item-text {
+        font-size: 0.9rem;
+    }
+
     .music-toggle {
         bottom: var(--space-md);
         right: var(--space-md);
         width: 42px;
         height: 42px;
     }
-    .btn-cta {
-        padding: var(--space-sm) var(--space-lg);
-        font-size: var(--text-xs);
+
+    .section-inner {
+        padding: var(--space-xl) var(--space-sm);
+    }
+
+    .nav-list {
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 0.65rem;
+        letter-spacing: 0.03em;
     }
 }
-@media (max-width: 480px) {
+
+/* Tablets e dispositivos médios (481px a 768px) */
+@media (min-width: 401px) and (max-width: 768px) {
+    :root {
+        --text-5xl: 2.8rem;
+        --text-4xl: 2.2rem;
+        --text-3xl: 1.8rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .letter-paper {
+        padding: var(--space-xl) var(--space-lg);
+    }
+
     .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-xs);
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
     }
+
+    .gallery-item {
+        aspect-ratio: 3 / 4;
+    }
+
+    .videos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
     .cards-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-sm);
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
     }
-    .emotional-card {
-        padding: var(--space-md) var(--space-sm);
+
+    .timeline {
+        padding-left: var(--space-xl);
     }
-    .section-title {
-        font-size: 1.5rem;
+
+    .timeline-item-dot {
+        left: calc(-1 * var(--space-xl) + 12px);
+        width: 12px;
+        height: 12px;
     }
-    .letter-content {
-        font-size: 0.95rem;
+
+    .timeline-item-content {
+        padding: var(--space-md) var(--space-lg);
+    }
+
+    .music-toggle {
+        bottom: var(--space-lg);
+        right: var(--space-lg);
+        width: 50px;
+        height: 50px;
     }
 }
+
+/* Notebooks e telas médias (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .videos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 5vw, 4rem);
+    }
+}
+
+/* Telas grandes (acima de 1025px) — valores padrão já garantidos */
 
 /* ========== ACESSIBILIDADE ========== */
 @media (prefers-reduced-motion: reduce) {
@@ -1038,4 +1131,27 @@ body {
     outline: 2px solid var(--color-gold);
     outline-offset: 3px;
     border-radius: 2px;
+}
+
+/* ========== CORREÇÕES GERAIS PARA TOQUE EM MOBILE ========== */
+@media (hover: none) and (pointer: coarse) {
+    /* Desativa alguns hovers em telas touch */
+    .gallery-item:hover img {
+        transform: none;
+    }
+    .gallery-item:hover .gallery-item-overlay {
+        opacity: 0; /* Só mostra overlay com toque? Pode-se usar JavaScript */
+    }
+}
+
+/* Ajuste para orientação paisagem em celulares (evita cortes) */
+@media (max-width: 850px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: 6rem 0 3rem;
+    }
+    .closing-section {
+        min-height: auto;
+        padding: 4rem 0;
+    }
 }
