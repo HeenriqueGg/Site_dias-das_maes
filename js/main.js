@@ -8,8 +8,8 @@
 // ⚠️ IMPORTANTE: Substitua pelos valores reais do seu projeto Supabase
 // ou configure as variáveis de ambiente na Vercel
 const SUPABASE_CONFIG = {
-    url: 'https://seu-projeto.supabase.co',      // ← SUBSTITUA
-    anonKey: 'sua-chave-anon-aqui'                // ← SUBSTITUA
+    url: 'https://zfmqoiwtzbkmhrrclogr.supabase.co',      // ← SUBSTITUA
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmbXFvaXd0emJrbWhycmNsb2dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNzY4OTMsImV4cCI6MjA5Mzg1Mjg5M30.kLaxGHkJ_2e1dE_tZJgFHAyAAbc5ciC_CFcBOgwOlFc'                // ← SUBSTITUA
 };
 
 /* ========== ESTADO GLOBAL ========== */
